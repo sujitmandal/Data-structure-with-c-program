@@ -1,6 +1,8 @@
 /* Linear search C program */
 #include <stdio.h>
  
+/* This program created by Sujit Mandal */
+
 int main()
 {
   int array[100], search, c, n;
