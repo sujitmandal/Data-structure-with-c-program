@@ -1,68 +1,67 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* This program created by Sujit Mandal */
-
 struct node {
     int info;
     struct node *next;
-}*head;
+};
+struct node *head=NULL;
 
-int n;
 void create();
 void display();
 
 int main()
 {
     int choice;
-    printf("Enter the total number of nodes: ");
-    scanf("%d", &n);
-    create();
-
-    printf("\ninfo in the list.\n\n");
-    display();
+    do
+	{
+		printf("\n1: create.");
+		printf("\n2: displaying.");
+		printf("\n3: exit.");
+	
+		printf("\nEnter your choice: ");
+		scanf("%d",&choice);
+	
+		switch(choice)
+		{
+			case 1:
+				create();
+				break;
+			case 2:
+				display();
+				break;
+			case 3:
+				exit(1);
+			default:
+				printf("\nInvalid choice!\n");
+		}
+	}while(1);
 
     return 0;
 }
-void create()
+void create ()
 {
-    struct node* new_node, *temp;
-    int info, i;
+    struct node* temp;
+    temp = (struct node*)malloc(sizeof(struct node));
+    printf("Enter node data :");
+    scanf("%d", &temp->info);
+    printf("\n%d inserted into Linked List\n\n",temp->info);
+    temp->next = NULL;
 
-    if(n <= 0)
+    if(head == NULL) 
     {
-        printf("List size must be greater than zero.\n");
-        return;
+        head = temp;
     }
+    else {
+        struct node* p;
+        p = head;
 
-    head = (struct node *)malloc(sizeof(struct node));
-
-    if(head == NULL)
-    {
-        printf("Unable to allocate memory.");
-    }
-    else
-    {
-        printf("Enter the info of node 1: ");
-        scanf("%d", &info);
-
-        head->info = info;
-        head->next = NULL;
-        temp = head;
-
-        for(i=2; i<=n; i++)
-        {
-            new_node = (struct node *)malloc(sizeof(struct node));
-
-                printf("Enter the info of node %d: ", i);
-                scanf("%d", &info);
-
-                new_node->info = info;
-                new_node->next = NULL;
-                temp->next = new_node;
-                temp = temp->next;
+        while (p->next != NULL) {
+            p = p->next;
         }
+        p->next = temp;
     }
+
 }
 void display()
 {
@@ -81,4 +80,3 @@ void display()
         }
     }
 }
-
