@@ -1,5 +1,8 @@
+/* write c program for LinkList */
 #include <stdio.h>
 #include <stdlib.h>
+
+/* This program created by Sujit Mandal */
 
 struct node {
     int info;
@@ -15,13 +18,13 @@ int main()
     int choice;
     do
 	{
-		printf("\n1: create.");
+		printf("\n\n1: create.");
 		printf("\n2: displaying.");
 		printf("\n3: exit.");
-	
+
 		printf("\nEnter your choice: ");
 		scanf("%d",&choice);
-	
+
 		switch(choice)
 		{
 			case 1:
@@ -43,12 +46,12 @@ void create ()
 {
     struct node* temp;
     temp = (struct node*)malloc(sizeof(struct node));
-    printf("Enter node data :");
+    printf("\nEnter node data :");
     scanf("%d", &temp->info);
-    printf("\n%d inserted into Linked List\n\n",temp->info);
+    printf("\n%d inserted into Linked List.\n",temp->info);
     temp->next = NULL;
 
-    if(head == NULL) 
+    if(head == NULL)
     {
         head = temp;
     }
@@ -68,14 +71,14 @@ void display()
     struct node *temp;
     if(head == NULL)
     {
-        printf("List is empty.");
+        printf("\nList is empty.");
     }
     else
     {
         temp = head;
         while(temp != NULL)
         {
-            printf("info = %d\n", temp->info);
+            printf("\ninfo = %d", temp->info);
             temp = temp->next;
         }
     }
