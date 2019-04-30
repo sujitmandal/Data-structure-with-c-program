@@ -7,10 +7,9 @@
 struct node {
     int info;
     struct node *link;
-}*head;
-struct node *head;
+};
+struct node *head=NULL;
 
-int n;
 void create();
 void delete_node();
 void display();
@@ -18,64 +17,59 @@ void display();
 int main()
 {
     int choice;
-    printf("Enter the total number of nodes: ");
-    scanf("%d", &n);
-    create();
-
-    printf("\ninfo in the list.\n\n");
-    display();
-
-    printf("\nEnter [1] to display delete_node of the list\n");
-    scanf("%d", &choice);
-    if(choice == 1)
-    {
-        delete_node(head);
-    }
-
-    printf("\ninfo in the list after deleted\n");
-    display();
+    do
+	{
+		printf("\n1: create.");
+		printf("\n2: delete last node.");
+		printf("\n3: display.");
+		printf("\n4: exit.");
+	
+		printf("\nEnter your choice: ");
+		scanf("%d",&choice);
+	
+		switch(choice)
+		{
+			case 1:
+				create();
+				break;
+			case 2:
+				delete_node(head);
+				break;
+			case 3:
+				display();
+				break;
+			case 4:
+				exit(1);
+			default:
+				printf("\nInvalid choice!\n");
+		}
+	}while(1);
 
     return 0;
 }
-void create()
+void create ()
 {
-    struct node* new_node, *temp;
-    int info, i;
+    struct node* temp;
+    temp = (struct node*)malloc(sizeof(struct node));
+    printf("Enter node data :");
+    scanf("%d", &temp->info);
+    printf("\n%d inserted into Linked List\n\n",temp->info);
+    temp->link = NULL;
 
-    if(n <= 0)
+    if(head == NULL) 
     {
-        printf("List size must be greater than zero.\n");
-        return;
+        head = temp;
     }
+    else {
+        struct node* p;
+        p = head;
 
-    head = (struct node *)malloc(sizeof(struct node));
-
-    if(head == NULL)
-    {
-        printf("Unable to allocate memory.");
-    }
-    else
-    {
-        printf("Enter the info of node 1: ");
-        scanf("%d", &info);
-
-        head->info = info;
-        head->link = NULL;
-        temp = head;
-
-        for(i=2; i<=n; i++)
-        {
-            new_node = (struct node *)malloc(sizeof(struct node));
-
-                printf("Enter the info of node %d: ", i);
-                scanf("%d", &info);
-
-                new_node->info = info;
-                new_node->link = NULL;
-                temp->link = new_node;
-                temp = temp->link;
+        while (p->link != NULL) {
+            p = p->link;
         }
+        p->link = temp;
     }
+
 }
 void delete_node(struct node *p)
 {
