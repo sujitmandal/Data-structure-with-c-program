@@ -1,5 +1,8 @@
+/* write a programe to delete value from a link list */
 #include <stdio.h>
 #include <stdlib.h>
+
+/* This program created by Sujit Mandal */
 
 struct node {
     int info;
