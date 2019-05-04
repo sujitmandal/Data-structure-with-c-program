@@ -48,9 +48,9 @@ int main()
 void height_in_inc()
 {
     int feet, inch;
-    printf("Enter Value of Feet: ");
+    printf("Enter Height in Feet: ");
     scanf("%d",&feet);
-    printf("Enter Value of Inch: ");
+    printf("Enter Height in inch: ");
     scanf("%d",&inch);
 
     height = ((feet * 12) + (inch * 1.2));
