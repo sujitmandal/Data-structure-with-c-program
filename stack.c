@@ -49,11 +49,11 @@ void push()
 	int item;
 	if(indicator<MAX)
 	{ 
-		printf("\nEnter the value:");
+		printf("Enter the value:");
 		scanf("%d",&item);
 		indicator=indicator+1;
 		a[indicator]=item;
-		printf("\nValue Inserted!\n");
+		printf("\n%d inserted in the stack.\n", item);
 	}
 	else
 	{
@@ -67,19 +67,24 @@ void pop()
 	if (indicator > -1)
 	{
 		indicator=indicator-1;
-		printf("\nValue Deleted!\n");
+		printf("\n%d deleted from stack.\n", a[indicator]);
+		display();
 	}
 	else
 	{
-		printf("\nUNDER FLOW!");
+		printf("\nUNDER FLOW!\n");
 	}
 }
 
 void display()
 {
-	int loop;
-	for(loop=0;loop<=indicator;loop++)
-	{
-		printf("%d, ",a[loop]);
-	}
+	int i;
+	if(indicator == -1)
+		printf("\nStack is empty!");
+	else
+	    printf("\nStack is : \n");
+	    for(i=0; i<=indicator; i++)
+			printf("%d, ",a[i]);
+		printf("\n");
+	
 }
