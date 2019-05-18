@@ -29,7 +29,7 @@ main()
         switch(choice)
         {
             case 1:
-                posh();
+                push();
                 break;
             case 2:
                 pop();
@@ -45,7 +45,7 @@ main()
     }while(1);
 }
 
-void posh()
+void push()
 {
     int item;
     if (rear == MAX - 1)
