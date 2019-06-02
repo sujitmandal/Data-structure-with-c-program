@@ -37,16 +37,16 @@ int main()
 			case 1:
 				create();
 				break;
-            case 2:
-                reverse();
-                display();
-                break;
-            case 3:
-                delete_last_node(head);
-                break;
-            case 4:
-            	delete_info();
-            	break;
+            		case 2:
+                		reverse();
+                		display();
+                		break;
+            		case 3:
+                		delete_last_node(head);
+                		break;
+            		case 4:
+            			delete_info();
+            			break;
 			case 5:
 				display();
 				break;
