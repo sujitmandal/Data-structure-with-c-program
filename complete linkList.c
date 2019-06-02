@@ -152,7 +152,6 @@ void delete_info()
 		{
 			if(r->info == value)
 			{
-				if(p != NULL)
 				p->next = r->next;
 				free(r);
 				break;
