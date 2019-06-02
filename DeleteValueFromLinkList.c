@@ -93,7 +93,6 @@ void delete_value()
 		{
 			if(r->info == value)
 			{
-				if(p != NULL)
 				p->link = r->link;
 				free(r);
 				break;
